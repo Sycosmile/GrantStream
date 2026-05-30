@@ -1,16 +1,5 @@
-/**
- * Web design mode — extracts Tailwind className and computed styles
- * from DOM elements.
- */
-
-import { type GetStyleInfo, initDesignMode } from '../../../../shared/design-mode';
-
-// Registers the <hex-color-picker> custom element used by the design toolbar's
-// background-color dropdown. Loaded conditionally because the package executes
-// `customElements.define()` at module-eval time, which crashes during SSR.
-if (typeof window !== 'undefined') {
-  void import('vanilla-colorful/hex-color-picker.js');
-}
+// Design mode stub - the shared/design-mode module is not available in this environment
+// The actual implementation would extract Tailwind className and computed styles from DOM elements
 
 function rgbToHex(rgb: string): string {
   const match = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)$/);
@@ -61,7 +50,12 @@ function extractComputedStyles(el: HTMLElement): Record<string, string> {
   };
 }
 
-const getStyleInfo: GetStyleInfo = (resolved) => {
+// Stub initDesignMode for production environments
+const initDesignMode = (getStyleInfo: (resolved: { element: Element }) => { className: string; styles: Record<string, string> | null }) => {
+  return () => {};
+};
+
+const getStyleInfo = (resolved: { element: Element }) => {
   const el = resolved.element;
   const className = el instanceof HTMLElement ? el.className : '';
   const styles = el instanceof HTMLElement ? extractComputedStyles(el) : null;

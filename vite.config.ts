@@ -82,9 +82,9 @@ export default defineConfig({
     allowedHosts: true,
     host: '0.0.0.0',
     port: Number(process.env.PORT) || 4000,
-    fs: {
-      allow: ['..', '../../shared'],
-    },
+fs: {
+       allow: ['..'],
+     },
     hmr: {
       overlay: false,
     },
