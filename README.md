@@ -1,5 +1,7 @@
 
 # GrantStream 🌊
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://grant-stream.vercel.app)
+[![Vercel](https://img.shields.io/badge/deployed-vercel-black)](https://grant-stream.vercel.app)
 
 > On-chain grant milestone disbursement protocol. Funders lock grant funds 
 > and release them automatically as grantees hit verifiable milestones — 
